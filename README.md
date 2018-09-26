@@ -14,3 +14,5 @@ To build this program, import it into your mbed environment, set the target to a
 The program is not actually specific to UBLOX_C030 boards, any mbed board with an I2C interface and a three-colour LED may be used (obviously you will need to change `main.cpp` so that the `LED1`, `LED2`, `LED3`, `I2C_SDA` and `I2C_SCL` pins are correct for that board).
 
 A pre-built binary that may be used on a UBLOX_C030_U201 board is also included.
+
+NOTE: this program has it's own version of the BQ35100 driver rather than linking to the library since it will be used on production parts which have been sealed and hence the reading of the seal codes that is usually done in the init() call to the driver (so that the device can be configured through API calls) has to be hacked out.
